@@ -1,10 +1,16 @@
 const addFormData = document.getElementById("addFormData");
 const addItemButton = document.getElementById("addItemBtn");
+const closeButton = document.getElementById("close");
 const itemForm = document.getElementById("itemForm");
 
 // this code shows the form to add a new item
 addItemButton.addEventListener("click", () =>
     itemForm.classList.remove("hidden")
+);
+
+// this code closes the form
+closeButton.addEventListener("click", () =>
+    itemForm.classList.add("hidden")
 );
 
 // This function is responsible for creating a new data and adding it to the inventry list

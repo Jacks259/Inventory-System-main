@@ -1,300 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../style.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="bg-slate-800 px-10 py-10 flex justify-between align-center">
-        <div>
-          <h1 class="text-2xl font-extrabold text-gray-200">
-            INVENTORY MANAGEMENT SYSTEM
-          </h1>
-        </div>
-      </nav>
-    </header>
 
-    <div class="flex">
-      <!-- sideBar-left -->
-      <div class="h-svh max-h-svh w-1/5 border-r-2 border-gray-400">
-        <div class="mt-10 pl-12">
-          <h2 class="text-gray-600 text-2xl mb-8 font-semibold">DASHBOARD</h2>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-        <div class="relative">
-          <div
-            class="tab-item"
-            onclick="showTab('manageItems')"
-            class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700"
-          >
-            <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Manage Items</h3>
-          </div>
+<body>
+  <header>
+    <nav class="bg-slate-800 px-10 py-10 flex justify-between align-center">
+      <div>
+        <h1 class="text-2xl font-extrabold text-gray-200">
+          INVENTORY MANAGEMENT SYSTEM
+        </h1>
+      </div>
+    </nav>
+  </header>
 
-          <div
-            class="tab-item"
-            onclick="showTab('archives')"
-            class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700"
-          >
-            <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Archives</h3>
-          </div>
-
-          <div
-            class="tab-item"
-            onclick="showTab('settings')"
-            class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700"
-          >
-            <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Settings</h3>
-          </div>
-
-          <div
-          id="logout-button"
-            class="tab-item"
-            class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700 cursor-pointer"
-          >
-            <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Logout</h3>
-          </div>
-        </div>
+  <div class="flex">
+    <!-- sideBar-left -->
+    <div class="h-svh max-h-svh w-1/5 border-r-2 border-gray-400">
+      <div class="mt-10 pl-12">
+        <h2 class="text-gray-600 text-2xl mb-8 font-semibold">DASHBOARD</h2>
       </div>
 
-      <!-- Main Content -->
-      <div class="h-svh max-h-svh w-4/5">
-        <div id="content">
-          <!-- Manage Items -->
-          <div id="manageItems" class="tab-content hidden">
-            <h2 class="text-white">Manage Items Content</h2>
-            <!-- <p>This is the manage items section.</p> -->
+      <div class="relative">
+        <div class="tab-item" onclick="showTab('manageItems')"
+          class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700">
+          <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Manage Items</h3>
+        </div>
 
-            <div class="flex justify-between px-20 py-10">
-              <div>
-                <div class="w-[250px]">
-                  <label for="searchItems" class="sr-only">Search Items</label>
-                  <input
-                    type="search"
-                    id="searchItems"
-                    class="text-gray-600 text-sm rounded-lg block w-full py-2 px-3 border-slate-800 border-2"
-                    placeholder="Search for items by name"
-                  />
-                </div>
-              </div>
-              <div>
-                <button
-                  id="addItemBtn"
-                  class="bg-gray-600 text-white font-semibold py-3 px-3 rounded-md"
-                >
-                  +Add Item
-                </button>
-              </div>
-            </div>
-            <table id="dataTable" class="w-full">
-              <thead class="bg-gray-50 border-b-2 border-gray-200 text-slate-800">
-                <tr class="divide-x-2 divide-red">
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">ID</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/5">Name</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/6">Category</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Quantity</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Unit</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody">
-                <!-- Data will be inserted here dynamically -->
-              </tbody>
-            </table>
-          </div>
+        <div class="tab-item" onclick="showTab('archives')"
+          class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700">
+          <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Archives</h3>
+        </div>
 
-          <!-- Archives -->
-          <div id="archives" class="tab-content hidden">
-            <h2 class="text-white">Archives Content</h2>
-            <!-- <p>This is the archives section.</p> -->
+        <div class="tab-item" onclick="showTab('settings')"
+          class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700">
+          <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Settings</h3>
+        </div>
 
-            <div class="flex justify-end px-20 py-10">
-              <div>
-                <div class="w-[250px]">
-                  <label for="searchItems" class="sr-only">Search Items</label>
-                  <input
-                    type="search"
-                    id="searchItems"
-                    class="text-gray-600 text-sm rounded-lg block w-full py-2 px-3 border-slate-800 border-2"
-                    placeholder="Search for items by name"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <table id="dataTable" class="w-full">
-              <thead class="bg-gray-50 border-b-2 border-gray-200 text-slate-800">
-                <tr class="divide-x-2 divide-red">
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">ID</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/5">Name</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/6">Category</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Quantity</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Unit</th>
-                  <th class="p-3 text-sm font-semibold tracking-wide text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="divide-x-2 divide-red">
-                  <td class="p-3 text-center">1</td>
-                  <td class="p-3 text-center">Item 1</td>
-                  <td class="p-3 text-center">Category A</td>
-                  <td class="p-3 text-center">10</td>
-                  <td class="p-3 text-center">Kg</td>
-                  <td class="p-3 text-center">
-                    <button class="text-blue-600 mr-3">Restore</button>
-                    <button class="text-red-600">Delete</button>
-                  </td>
-                </tr>
-                <tr class="divide-x-2 divide-red">
-                  <td class="p-3 text-center">2</td>
-                  <td class="p-3 text-center">Item 2</td>
-                  <td class="p-3 text-center">Category B</td>
-                  <td class="p-3 text-center">5</td>
-                  <td class="p-3 text-center">L</td>
-                  <td class="p-3 text-center">
-                    <button class="text-blue-600 mr-3">Restore</button>
-                    <button class="text-red-600">Delete</button>
-                  </td>
-                </tr>
-                <tr class="divide-x-2 divide-red">
-                  <td class="p-3 text-center">3</td>
-                  <td class="p-3 text-center">Item 3</td>
-                  <td class="p-3 text-center">Category C</td>
-                  <td class="p-3 text-center">8</td>
-                  <td class="p-3 text-center">cm</td>
-                  <td class="p-3 text-center">
-                    <button class="text-blue-600 mr-3">Restore</button>
-                    <button class="text-red-600">Delete</button>
-                  </td>
-                </tr>
-                <tr class="divide-x-2 divide-red">
-                  <td class="p-3 text-center">4</td>
-                  <td class="p-3 text-center">Item 4</td>
-                  <td class="p-3 text-center">Category D</td>
-                  <td class="p-3 text-center">15</td>
-                  <td class="p-3 text-center">bag(s)</td>
-                  <td class="p-3 text-center">
-                    <button class="text-blue-600 mr-3">Restore</button>
-                    <button class="text-red-600">Delete</button>
-                  </td>
-                </tr>
-                <tr class="divide-x-2 divide-red">
-                  <td class="p-3 text-center">5</td>
-                  <td class="p-3 text-center">Item 5</td>
-                  <td class="p-3 text-center">Category E</td>
-                  <td class="p-3 text-center">20</td>
-                  <td class="p-3 text-center">Kg</td>
-                  <td class="p-3 text-center">
-                    <button class="text-blue-600 mr-3">Restore</button>
-                    <button class="text-red-600">Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Settings -->
-    <div id="settings" class="tab-content h-[100vh] hidden">
-      <div class="flex flex-col px-20 py-10">
-          <div class="w-[550px] mb-8">
-            <div class="flex w-full">
-                <input type="text" id="categoryName" class="text-gray-600 text-sm rounded-lg block w-[800px] py-2 px-3 border-slate-800 border-2" placeholder="Enter category name">
-                <button id="addCategoryBtn" class="bg-gray-600 text-white ml-4 py-2 px-3 whitespace-nowrap rounded-md">Add Category</button>
-            </div>
-            <div class="mt-3">
-              <h2 class="text-lg font-semibold">Existing Categories</h2>
-              <ul id="categoryList" class="list-disc pl-5">
-                <li>Tools</li>
-                <li>Stationaneries</li>
-                <li>Food</li>
-              </ul>
-            </div>
-          </div>
-          <div class="w-[550px]">
-            <div class="flex w-full">
-              <input type="text" id="unitName2" class="text-gray-600 text-sm rounded-lg block w-[800px] py-2 px-3 border-slate-800 border-2" placeholder="Enter unit name">
-                <button id="addUnitBtn2" class="bg-gray-600 text-white ml-4 py-2 px-3 whitespace-nowrap rounded-md">Add Unit</button>
-            </div>
-            <div class="mt-3">
-              <h2 class="text-lg font-semibold">Existing Units</h2>
-              <ul id="unitList2" class="list-disc pl-5">
-                <li>Kg</li>
-                <li>cm</li>
-                <li>bag(s)</li>
-              </ul>
-            </div>
+        <div id="logout-button" class="tab-item"
+          class="py-2 px-4 rounded transition-colors duration-300 hover:bg-gray-700 cursor-pointer">
+          <h3 class="text-gray-600 pl-4 py-2 mt-2 font-bold cursor-pointer">Logout</h3>
         </div>
       </div>
-    
     </div>
+
+    <!-- Main Content -->
+    <div class="h-svh max-h-svh w-4/5">
+      <div id="content">
+        <!-- Manage Items -->
+        <div id="manageItems" class="tab-content hidden">
+          <h2 class="text-white">Manage Items Content</h2>
+          <!-- <p>This is the manage items section.</p> -->
+
+          <div class="flex justify-between px-20 py-10">
+            <div>
+              <div class="w-[250px]">
+                <label for="searchItems" class="sr-only">Search Items</label>
+                <input type="search" id="searchItems"
+                  class="text-gray-600 text-sm rounded-lg block w-full py-2 px-3 border-slate-800 border-2"
+                  placeholder="Search for items by name" oninput="filterItems()" />
+              </div>
+            </div>
+            <div>
+              <button id="addItemBtn" class="bg-gray-600 text-white font-semibold py-3 px-3 rounded-md">
+                +Add Item
+              </button>
+            </div>
+          </div>
+          <table id="itemsTable" class="w-full">
+            <thead class="bg-gray-50 border-b-2 border-gray-200 text-slate-800">
+              <tr class="divide-x-2 divide-red">
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">ID</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/5">Name</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/6">Category</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Quantity</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Unit</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody">
+              <!-- Data will be inserted here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Archives -->
+        <div id="archives" class="tab-content hidden">
+          <h2 class="text-white">Archives Content</h2>
+          <!-- <p>This is the archives section.</p> -->
+
+          <div class="flex justify-end px-20 py-10">
+            <div>
+              <div class="w-[250px]">
+                <label for="searchArchives" class="sr-only">Search Items</label>
+                <input type="search" id="searchArchives"
+                  class="text-gray-600 text-sm rounded-lg block w-full py-2 px-3 border-slate-800 border-2"
+                  placeholder="Search for items by name" oninput="filterArchives()" />
+              </div>
+            </div>
+          </div>
+
+          <table id="archiveTable" class="w-full">
+            <thead class="bg-gray-50 border-b-2 border-gray-200 text-slate-800">
+              <tr class="divide-x-2 divide-red">
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">ID</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/5">Name</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/6">Category</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Quantity</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center w-1/20">Unit</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="archiveBody">
+              <!-- Data will be inserted here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="tab-content h-[100vh] hidden">
+          <div class="flex flex-col px-20 py-10">
+            <div class="w-[550px] mb-8">
+              <form id='categoryForm' class="flex w-full">
+                <input type="text" id="categoryName"
+                  class="text-gray-600 text-sm rounded-lg block w-[800px] py-2 px-3 border-slate-800 border-2"
+                  placeholder="Enter category name">
+                <button type="submit" id="addCategoryBtn"
+                  class="bg-gray-600 text-white ml-4 py-2 px-3 whitespace-nowrap rounded-md">Add Category</button>
+              </form>
+              <div class="mt-3">
+                <h2 class="text-lg font-semibold">Existing Categories</h2>
+                <ul id="categoryList" class="list-disc pl-5">
+                  <!-- List will be inserted here dynamically -->
+                </ul>
+              </div>
+            </div>
+            <div class="w-[550px]">
+              <form id='unitForm' class="flex w-full">
+                <input type="text" id="unitName"
+                  class="text-gray-600 text-sm rounded-lg block w-[800px] py-2 px-3 border-slate-800 border-2"
+                  placeholder="Enter unit name">
+                <button id="addUnitBtn" type="submit"
+                  class="bg-gray-600 text-white ml-4 py-2 px-3 whitespace-nowrap rounded-md">Add Unit</button>
+              </form>
+              <div class="mt-3">
+                <h2 class="text-lg font-semibold">Existing Units</h2>
+                <ul id="unitList" class="list-disc pl-5">
+                  <!-- List will be inserted here dynamically -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
 
-    <!-- Add Item form -->
-    <form
-      id="itemForm"
-      action=""
-      class="mt-5 bg-zinc-400 px-8 py-6 mb-10 rounded-lg hidden"
-    >
-      <div class="h-[50vh] flex justify-center flex-col gap-4">
+  <!-- Add Item form -->
+  <div id="itemForm" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-[50%] sm:p-6">
         <div>
-          <label
-            for="Name"
-            class="block text-lg font-medium text-gray-900 dark:text-white"
-            >Name</label
-          >
-          <input
-            type="text"
-            id="name"
-            class="bg-gray-200 text-gray-900 text-sm rounded block w-96 p-2.5"
-            placeholder="you@example.com"
-          />
+          <div class="flex flex-row justify-between text-center sm:mt-5 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Add Item
+            </h3>
+            <button id='close' class="text-lg leading-6 font-medium text-white bg-slate-800 py-2 px-3 rounded-lg"
+              id="modal-title">
+              Close
+            </button>
+          </div>
         </div>
-        <div>
-          <label
-            for="Quantity"
-            class="block text-lg font-medium text-gray-900 dark:text-white"
-            >Quantity</label
-          >
-          <input
-            type="number"
-            id="quantity"
-            class="bg-gray-200 text-gray-900 text-sm rounded block w-96 p-2.5"
-            placeholder="6 characters or more"
-          />
-        </div>
-        <div>
-          <label
-            for="Price"
-            class="block text-lg font-medium text-gray-900 dark:text-white"
-            >Price</label
-          >
-          <input
-            type="text"
-            id="price"
-            class="bg-gray-200 text-gray-900 text-sm rounded block w-96 p-2.5"
-            placeholder="6 characters or more"
-          />
-        </div>
-        <div class="flex justify-center">
-          <button
-            id="addFormData"
-            class="bg-slate-800 text-white py-2 px-3 mt-2 rounded"
-          >
-            Add
-          </button>
+        <div class="mt-2">
+          <form id="addItemForm" class="mt-5 flex flex-col gap-4">
+            <div class="flex flex-row justify-between"> 
+              <div class="w-1/2 pr-2">
+                <label for="name" class="block text-lg font-medium text-gray-900 dark:text-black">Name</label>
+                <input type="text" id="name" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Name of item" />
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="category" class="block text-lg font-medium text-gray-900 dark:text-black">Category</label>
+                <select id="category" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5">
+                  <!-- Options will be populated dynamically -->
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-1/2 pr-2">
+                <label for="quantity" class="block text-lg font-medium text-gray-900 dark:text-black">Quantity</label>
+                <input type="number" id="quantity" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Quantity" />
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="reorder-quantity" class="block text-lg font-medium text-gray-900 dark:text-black">Reorder
+                  Quantity</label>
+                <input type="number" id="reorder-quantity"
+                  class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5" placeholder="Reorder Quantity" />
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-1/2 pr-2">
+                <label for="unit" class="block text-lg font-medium text-gray-900 dark:text-black">Unit</label>
+                <select id="unit" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5">
+                  <!-- Options will be populated dynamically -->
+                </select>
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="price" class="block text-lg font-medium text-gray-900 dark:text-black">Price</label>
+                <input type="text" id="price" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Unit price in GHc" />
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-full">
+                <label for="description" class="block text-lg font-medium text-gray-900 dark:text-black">Description</label>
+                <textarea id="description" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5" placeholder="Item Description"></textarea>
+              </div>
+            </div>
+            <div class="flex justify-center mt-4">
+              <button type="submit" id="addFormData" class="bg-slate-800 text-white py-2 px-3 mt-2 rounded-md w-full ">Add Item</button>
+            </div>
+          </form>
         </div>
       </div>
-    </form>
+    </div>
+  </div>
 
-    <script src="../scripts/logout.js"></script>
-    <script src="../scripts/dashboard.js"></script>
+  <!-- Update Item form -->
+  <div id="updateForm" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
-  </body>
-  </html>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-[50%] sm:p-6">
+        <div>
+          <div class="flex flex-row justify-between text-center sm:mt-5 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Update Item
+            </h3>
+            <button id='close2' class="text-lg leading-6 font-medium text-white bg-slate-800 py-2 px-3 rounded-lg"
+              id="modal-title">
+              Close
+            </button>
+          </div>
+        </div>
+        <div class="mt-2">
+          <form id="updateItemForm" class="mt-5 flex flex-col gap-4">
+            <div class="flex flex-row justify-between"> 
+              <div class="w-1/2 pr-2">
+                <label for="nameTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Name</label>
+                <input type="text" id="nameTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Name of item" />
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="categoryTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Category</label>
+                <select id="categoryTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5">
+                  <!-- Options will be populated dynamically -->
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-1/2 pr-2">
+                <label for="quantityTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Quantity</label>
+                <input type="number" id="quantityTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Quantity" />
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="reorder-quantityTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Reorder
+                  Quantity</label>
+                <input type="number" id="reorder-quantityTwo"
+                  class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5" placeholder="Reorder Quantity" />
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-1/2 pr-2">
+                <label for="unitTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Unit</label>
+                <select id="unitTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5">
+                  <!-- Options will be populated dynamically -->
+                </select>
+              </div>
+              <div class="w-1/2 pl-2">
+                <label for="priceTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Price</label>
+                <input type="text" id="priceTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5"
+                  placeholder="Unit price in GHc" />
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-4">
+              <div class="w-full">
+                <label for="descriptionTwo" class="block text-lg font-medium text-gray-900 dark:text-black">Description</label>
+                <textarea id="descriptionTwo" class="bg-gray-200 text-gray-900 text-sm rounded block w-full p-2.5" placeholder="Item Description"></textarea>
+              </div>
+            </div>
+            <div class="flex justify-center mt-4">
+              <button type="submit" id="updateFormData" class="bg-slate-800 text-white py-2 px-3 mt-2 rounded-md w-full ">Update Item</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/manageItems.js"></script>
+  <script src="../scripts/categoriesAndUnits.js"></script>
+  <script src="../scripts/logout.js"></script>
+  <script src="../scripts/dashboard.js"></script>
+
+</body>
+
+</html>
