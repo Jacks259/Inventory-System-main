@@ -3,7 +3,7 @@ document.getElementById('logout-button').addEventListener('click', async () => {
     const token = localStorage.getItem('authToken');
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/accounts/logout/', {
+        const response = await fetch('https://pk1bfm0q-8000.uks1.devtunnels.ms/accounts/logout/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
         });
