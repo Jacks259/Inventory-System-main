@@ -314,7 +314,7 @@ function createItem(event) {
 
     console.log(data);
 
-    fetch('http://127.0.1:8000/items/create/', {
+    fetch('https://pk1bfm0q-8000.uks1.devtunnels.ms/items/create/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -363,7 +363,7 @@ function updateItem(event) {
     };
 
 
-    fetch(`http://127.0.1:8000/items/update/${currentItemId}/`, {
+    fetch(`https://pk1bfm0q-8000.uks1.devtunnels.ms/items/update/${currentItemId}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
